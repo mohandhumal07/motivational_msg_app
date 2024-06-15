@@ -1,0 +1,53 @@
+<html>
+<head>
+		<title> Motivational Msg App by Mohan </title>
+		<style>
+						*  { font-size:60px; font-family:Cambria; font-style:italic;}
+							body {background-image: url('p4.jpg'); background-size: cover;}
+							.container {
+							margin-top: 20px;
+            				font-size: 20px;  
+            				background: rgba(255, 255, 255, 0.244);
+           				 	width: max-content 0;
+            				margin: 5%;
+            				padding:3px ;
+            			
+            				text-align: center;
+					
+			
+								}
+					</style>
+					
+</head>
+</body>
+<center>	
+
+			
+			<h1> Motivational Messages </h1>
+
+			<div class = "container">
+			<h2 id = "msg" />
+			<h2 id = "aut" />
+			<script>
+						function gm()
+						{
+									let msg = document.getElementById("msg");
+									let aut = document.getElementById("aut");
+									
+									let url = "https://api.quotable.io/random";
+									fetch(url)
+									.then(res => res.json())
+									.then(data => {
+															msg.innerHTML = data.content;
+															aut.innerHTML = data.author;
+									})
+									.catch(err => msg.innerHTML = "issue" + err);
+	
+						}
+						gm();
+						setInterval(gm,6000);
+			</script>
+</div>
+</center>
+</body>
+</html>
